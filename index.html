@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meu Timer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Luzes do fundo -->
+  <div class="luz luz1"></div>
+  <div class="luz luz2"></div>
+  <div class="luz luz3"></div>
+
+  <!-- Partículas -->
+  <div class="bolinha b1"></div>
+  <div class="bolinha b2"></div>
+  <div class="bolinha b3"></div>
+  <div class="bolinha b4"></div>
+  <div class="bolinha b5"></div>
+
+  <!-- Timer -->
+  <div class="container">
+
+    <h1>Tempo passado</h1>
+
+    <div id="contador"></div>
+
+  </div>
+
+  <script>
+    const inicio = new Date("2026-04-24T00:00:00");
+
+    function atualizar() {
+      const agora = new Date();
+
+      let segundos = Math.floor((agora - inicio) / 1000);
+
+      const dias = Math.floor(segundos / 86400);
+      segundos %= 86400;
+
+      const horas = Math.floor(segundos / 3600);
+      segundos %= 3600;
+
+      const minutos = Math.floor(segundos / 60);
+      segundos %= 60;
+
+      document.getElementById("contador").innerHTML =
+        dias + " dias, " +
+        horas + " horas, " +
+        minutos + " minutos e " +
+        segundos + " segundos";
+    }
+
+    atualizar();
+
+    setInterval(atualizar, 1000);
+  </script>
+
+</body>
+</html>
